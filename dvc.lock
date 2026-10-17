@@ -12,3 +12,14 @@ stages:
       hash: md5
       md5: 75f43538cbb142aade6d332152b18ea9
       size: 543555
+  validate:
+    cmd: python src/data/validate.py
+    deps:
+    - path: data/raw/transactions.csv
+      hash: md5
+      md5: 75f43538cbb142aade6d332152b18ea9
+      size: 543555
+    - path: src/data/validate.py
+      hash: md5
+      md5: 04e4f041b495403abffa23d9a92177dc
+      size: 959

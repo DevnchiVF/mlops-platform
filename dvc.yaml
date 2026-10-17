@@ -5,3 +5,8 @@ stages:
       - src/data/generator.py
     outs:
       - data/raw/transactions.csv
+  validate:
+    cmd: python src/data/validate.py
+    deps:
+      - src/data/validate.py
+      - data/raw/transactions.csv
