@@ -1,0 +1,7 @@
+stages:
+  generate:
+    cmd: python src/data/generator.py --num-records 10000
+    deps:
+      - src/data/generator.py
+    outs:
+      - data/raw/transactions.csv

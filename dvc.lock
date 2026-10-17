@@ -1,0 +1,14 @@
+schema: '2.0'
+stages:
+  generate:
+    cmd: python src/data/generator.py --num-records 10000
+    deps:
+    - path: src/data/generator.py
+      hash: md5
+      md5: b64ae0772183e90932c4dc94891c8c2e
+      size: 1901
+    outs:
+    - path: data/raw/transactions.csv
+      hash: md5
+      md5: 75f43538cbb142aade6d332152b18ea9
+      size: 543555
