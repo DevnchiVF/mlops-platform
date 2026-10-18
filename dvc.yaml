@@ -1,8 +1,12 @@
 stages:
   generate:
-    cmd: python src/data/generator.py --num-records 10000
+    cmd: python src/data/generator.py
     deps:
       - src/data/generator.py
+    params:
+      - num_records
+      - fraud_rate
+      - random_seed
     outs:
       - data/raw/transactions.csv
   validate:

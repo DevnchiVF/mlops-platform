@@ -1,12 +1,17 @@
 schema: '2.0'
 stages:
   generate:
-    cmd: python src/data/generator.py --num-records 10000
+    cmd: python src/data/generator.py
     deps:
     - path: src/data/generator.py
       hash: md5
-      md5: b64ae0772183e90932c4dc94891c8c2e
-      size: 1901
+      md5: ddf1a30e73385b4a640911ff75f346bc
+      size: 2113
+    params:
+      params.yaml:
+        fraud_rate: 0.01
+        num_records: 10000
+        random_seed: 42
     outs:
     - path: data/raw/transactions.csv
       hash: md5
