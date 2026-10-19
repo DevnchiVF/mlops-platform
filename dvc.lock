@@ -5,8 +5,8 @@ stages:
     deps:
     - path: src/data/generator.py
       hash: md5
-      md5: ddf1a30e73385b4a640911ff75f346bc
-      size: 2113
+      md5: 107072a2cec995de12635026eefefcc6
+      size: 1857
     params:
       params.yaml:
         fraud_rate: 0.01
@@ -28,3 +28,35 @@ stages:
       hash: md5
       md5: 04e4f041b495403abffa23d9a92177dc
       size: 959
+  prepare:
+    cmd: python src/training/prepare.py
+    deps:
+    - path: data/raw/transactions.csv
+      hash: md5
+      md5: 75f43538cbb142aade6d332152b18ea9
+      size: 543555
+    - path: src/training/prepare.py
+      hash: md5
+      md5: 6f187b836d0684a253a4ae11490fdb10
+      size: 903
+    params:
+      params.yaml:
+        random_seed: 42
+        test_size: 0.2
+    outs:
+    - path: data/processed/X_test.csv
+      hash: md5
+      md5: b85279cea2283d4f3d5c07549c3b41f2
+      size: 60314
+    - path: data/processed/X_train.csv
+      hash: md5
+      md5: 968397f01a6cf5dc909aafc0a444ae8f
+      size: 240275
+    - path: data/processed/y_test.csv
+      hash: md5
+      md5: f6e42e85ad306da5524c63eaae3d15f6
+      size: 6010
+    - path: data/processed/y_train.csv
+      hash: md5
+      md5: 6cc756527b412d41a9744a782ed13090
+      size: 24010

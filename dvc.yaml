@@ -14,3 +14,16 @@ stages:
     deps:
       - src/data/validate.py
       - data/raw/transactions.csv
+  prepare:
+    cmd: python src/training/prepare.py
+    deps:
+      - src/training/prepare.py
+      - data/raw/transactions.csv
+    params:
+      - test_size
+      - random_seed
+    outs:
+      - data/processed/X_test.csv
+      - data/processed/X_train.csv
+      - data/processed/y_test.csv
+      - data/processed/y_train.csv
