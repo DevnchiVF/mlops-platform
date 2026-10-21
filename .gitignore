@@ -1,3 +1,7 @@
 venv/
 __pycache__/
+*.pyc
+
 data/raw/*.csv
+data/processed/*.csv
+metrics.json
