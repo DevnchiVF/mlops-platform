@@ -70,3 +70,11 @@ Because fraud is highly imbalanced, the primary metrics are:
 
 Accuracy is included only as contextual information. The classification threshold
 is configurable through `decision_threshold` in `params.yaml`.
+
+
+## Learning path
+
+If you are using this project to learn MLOps from scratch, follow
+[docs/learning-roadmap.md](docs/learning-roadmap.md). The project has an
+apply-ready MVP before the advanced monitoring/retraining/Kubernetes extensions,
+so you do not need to master the entire stack before starting to apply.
