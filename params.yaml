@@ -1,5 +1,12 @@
 num_records: 10000
 fraud_rate: 0.01
 random_seed: 42
-test_size: 0.2
-class_weight: "balanced"
+test_size: 0.2 
+
+class_weight: "balanced_subsample"
+n_estimators: 350
+max_depth: 20
+min_samples_leaf: 3
+min_samples_split: 11
+max_features: 0.3
+decision_threshold: 0.30

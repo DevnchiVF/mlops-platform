@@ -9,11 +9,13 @@ stages:
       - random_seed
     outs:
       - data/raw/transactions.csv
+
   validate:
     cmd: python src/data/validate.py
     deps:
       - src/data/validate.py
       - data/raw/transactions.csv
+
   prepare:
     cmd: python src/training/prepare.py
     deps:
@@ -27,3 +29,34 @@ stages:
       - data/processed/X_train.csv
       - data/processed/y_test.csv
       - data/processed/y_train.csv
+
+  train:
+    cmd: python src/training/train.py
+    deps:
+      - src/training/train.py
+      - data/processed/X_train.csv
+      - data/processed/y_train.csv
+    params:
+      - class_weight
+      - n_estimators
+      - max_depth
+      - min_samples_leaf
+      - min_samples_split
+      - max_features
+      - decision_threshold
+      - random_seed
+    outs:
+      - models/model.joblib
+
+  evaluate:
+    cmd: python src/training/evaluate.py
+    deps:
+      - src/training/evaluate.py
+      - models/model.joblib
+      - data/processed/X_test.csv
+      - data/processed/y_test.csv
+    params:
+      - decision_threshold
+    metrics:
+      - metrics.json:
+          cache: false
